@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Welcome to My Blog</title>
+  <title>Blog Home - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
   <link href="/css/bootstrap.css" rel="stylesheet">
@@ -19,7 +19,9 @@
 </head>
 
 <body>
+
 @yield('content')
+
 <!-- Footer -->
 <footer class="py-5 bg-dark">
     <div class="container">

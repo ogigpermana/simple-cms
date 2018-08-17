@@ -1,8 +1,6 @@
 @extends('layouts.main')
 @section('content')
-  <!-- Navigation -->
-  @include('layouts.nav')
-
+@include('layouts.navbar')
   <!-- Page Content -->
   <div class="container">
 
@@ -11,14 +9,16 @@
       <!-- Blog Entries Column -->
       <div class="col-md-8">
 
-        <h1 class="my-4">Page Heading
-          <small>Secondary Text</small>
+        <h1 class="my-4">Daftar
+          <small>Artikel Terbaru</small>
         </h1>
 
         <!-- Blog Post -->
         @forelse($posts as $post)
         <div class="card mb-4">
-          <img class="card-img-top" src="/img/{{ $post->image }}" alt="Card image cap">
+          @if($post->image)
+          <img class="card-img-top" src="{{ $post->image_url }}" alt="Card image cap">
+          @endif
           <div class="card-body">
             <h2 class="card-title">{{ $post->title }}</h2>
             <p class="card-text">{{ $post->excerpt }}</p>
@@ -30,7 +30,7 @@
           </div>
         </div>
         @empty
-        <p>Tidak ada artikel yang bisa ditampilkan</p>
+        <p>Anda tidak memiliki artikel yang bisa ditampilkan</p>
         @endforelse
 
         <!-- Pagination -->
@@ -46,11 +46,11 @@
       </div>
 
       <!-- Sidebar Widgets Column -->
-    @include('layouts.sidebar')
+@include('layouts.sidebar')
 
     </div>
     <!-- /.row -->
 
   </div>
   <!-- /.container -->
-@stop 
+@endsection
