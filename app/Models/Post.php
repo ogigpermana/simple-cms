@@ -6,19 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    public function getImageUrlAttribute($value)
+    public function  getImageUrlAttribute($value)
     {
-        $imageUrl = "";
-
-        $directory = config('cms.image.directory');
-
-        if (!is_null($this->image)) {
+    // Definisikan variable $imageUrl
+    $imageUrl = "";
+    $directory = config('cms.image.directory');
+    // Pastikan post memiliki gambar dalam artian tidak null
+        if(! is_null($this->image)){
             $imagePath = public_path() . "/{$directory}/" . $this->image;
-            if (file_exists($imagePath)) {
-                $imageUrl = asset("{$directory}/" . $this->image);
+            // Cek file di server
+            if (file_exists($imagePath)){
+            // Jika file gambar ada di server 
+            // maka kita tampung url gambar dalam
+            // variable image url
+            $imageUrl = asset("{$directory}/" . $this->image);
             }
-        }
+            return $imageUrl;
 
-        return $imageUrl;
+        }
     }
 }

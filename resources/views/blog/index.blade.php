@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('content')
-@include('layouts.navbar')
+    
   <!-- Page Content -->
   <div class="container">
 
@@ -25,14 +25,15 @@
             <a href="show.html" class="btn btn-primary">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-            Posted on {{ $post->created_at }} by
+            Posted on {{ $post->created_at->diffForHumans() }} by
             <a href="#">Start Bootstrap</a>
           </div>
         </div>
         @empty
-        <p>Anda tidak memiliki artikel yang bisa ditampilkan</p>
+        <div class="card mb-4">
+          <p>Tidak ada artikel saat ini yang bisa ditampilkan</p>
+        </div>
         @endforelse
-
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
           <li class="page-item">
@@ -46,11 +47,13 @@
       </div>
 
       <!-- Sidebar Widgets Column -->
-@include('layouts.sidebar')
+      @include('layouts.sidebar')
 
     </div>
     <!-- /.row -->
 
   </div>
   <!-- /.container -->
-@endsection
+
+  <!-- Footer -->
+  @endsection

@@ -1,6 +1,6 @@
 <?php
 return [
   'image' => [
-      'directory' => 'img'
-  ]
+    'directory' => 'img'
+    ]
 ];
