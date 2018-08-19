@@ -25,8 +25,8 @@
             <a href="show.html" class="btn btn-primary">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
-            Posted on {{ $post->created_at->diffForHumans() }} by
-            <a href="#">Start Bootstrap</a>
+            Posted on {{ $post->date }} by
+            <a href="#">{{ $post->user->name }}</a>
           </div>
         </div>
         @empty
@@ -35,14 +35,17 @@
         </div>
         @endforelse
         <!-- Pagination -->
-        <ul class="pagination justify-content-center mb-4">
+        {{-- <ul class="pagination justify-content-center mb-4">
           <li class="page-item">
             <a class="page-link" href="#">&larr; Older</a>
           </li>
           <li class="page-item disabled">
             <a class="page-link" href="#">Newer &rarr;</a>
           </li>
-        </ul>
+        </ul> --}}
+        <div class="pagination justify-content-center mb-4">
+          {!! $posts->links() !!}
+        </div>
 
       </div>
 
